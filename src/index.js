@@ -21,7 +21,9 @@ const Image1 = () => <img src="./images/book-1.jpg" alt="The Courage to Be Free"
 const Title1 = () => <h2>The Courage to Be Free: Florida's Blueprint for America's Revival</h2>
 const Author1 = () => {
   return (
-  <h4>Ron DeSantis</h4>
+    //inline styling option 1
+  <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.5rem' }}>
+  Ron DeSantis</h4>
   )
 }
 const Book2 = () => {
@@ -33,11 +35,17 @@ const Book2 = () => {
 }
 const Image2 = () => <img src="./images/book-2.jpg" alt="Atomic Habits"/>
 const Title2 = () => <h2>Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones</h2>
-const Author2 = () => {
-  return (
-  <h4>James Clear</h4>
-  )
-}
+const Author2= () => {
+  //inline styling option 2
+const inlineHeadingStyles = {
+  color: '#617d98',
+  fontSize: '0.75rem',
+  marginTop: '0.5rem',
+};
+return <h4 style={inlineHeadingStyles}>Jordan Moore </h4>;
+};
+  
+
 const Book3 = () => {
   return <article className="book">
 <Image3 />
@@ -49,6 +57,7 @@ const Image3 = () => <img src="./images/book-3.jpg" alt="The Courage to Be Free"
 const Title3 = () => <h2>My Little Golden Book About Betty White</h2>
 const Author3 = () => {
   return (
+    //styled in index.css
   <h4>Deborah Hopkinson</h4>
   )
 }
