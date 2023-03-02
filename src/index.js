@@ -2,25 +2,27 @@ import React from "react";
 import ReactDOM  from "react-dom/client";
 import './index.css';
 
-const BookList =() => {
-  return <section className="booklist">
-    <Book />
-    <Book />
-    <Book />
-   
-  </section>
-}
-const author = "Ron DeSantis";
-const Book =()=>{
 
+const author = 'Ron DeSantis';
 const title = "The Courage to Be Free: Florida's Blueprint for America's Revival";
-  return(
-    <article className="book">
-      <img
-      src="./images/book-1.jpg"
-      alt="The Courage to Be Free" />
-      <h2>{title}</h2>
-      <h4>{author}</h4>
+const img = './images/book-1.jpg';
+
+const BookList =() => {
+  return (
+  <section className="booklist">
+    <Book author={author} title={title} img={img}/>
+    <Book author={author} title={title} />
+
+  </section>
+  );
+};
+const Book = (props) => {
+  console.log(props);
+  return (
+    <article className='book'>
+      <img src={props.img} alt={props.title} />
+      <h2>{props.title}</h2>
+      <h4>{props.author} </h4>
     </article>
   );
 };
