@@ -2,53 +2,46 @@ import React from "react";
 import ReactDOM  from "react-dom/client";
 import './index.css';
 
-
-
-
-const Book1 ={
+const books = [
+{
   author: "Ron DeSantis",
   title: "The Courage to Be Free: Florida's Blueprint for America's Revival",
   img: './images/book-1.jpg'
-}
+},
 
-const Book2 ={
+{
   author: "James Clear",
   title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
   img: './images/book-2.jpg'
-}
+},
 
-const Book3 ={
+{
   author: "Deborah Hopkinson",
   title: "My Little Golden Book About Betty White",
   img: './images/book-3.jpg'
-}
+},
+];
 
+const names = ['Taylor','Ava','Trish'];
+const newNames = names.map((name)=> {
+ return <h1>{name}</h1>
+});
+console.log(newNames);
 const BookList =() => {
 
   return (
-  <section className="booklist">
-    <Book author={Book1.author} title={Book1.title} img={Book1.img}>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-          repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
-        </p>
-        <button>click me</button>
-    </Book>
-    <Book author={Book2.author} title={Book2.title} img={Book2.img} />
-    <Book author={Book3.author} title={Book3.title} img={Book3.img} />
-
-  </section>
+  <section className="booklist">{newNames}</section>
   );
 };
 const Book = (props) => {
-const {img, title, author, children} = props;
+const {img, title, author, } = props;
 console.log(props);
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
       <h4>{author} </h4>
-      {children}
+   
     </article>
   );
  };
