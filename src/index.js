@@ -22,15 +22,23 @@ const books = [
 },
 ];
 
-const names = ['Taylor','Ava','Trish'];
-const newNames = names.map((name)=> {
- return <h1>{name}</h1>
-});
-console.log(newNames);
+// const names = ['Taylor','Ava','Trish'];
+// const newNames = names.map((name)=> {
+//  return <h1>{name}</h1>
+// });
+// console.log(newNames);
 const BookList =() => {
 
   return (
-  <section className="booklist">{newNames}</section>
+  <section className="booklist">
+    {books.map((book) => {
+     const {img, title, author} = book
+      return (
+        <Book img={img} title={title} author={author} />
+      )
+    
+    })}
+  </section>
   );
 };
 const Book = (props) => {
