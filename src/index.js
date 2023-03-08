@@ -27,83 +27,42 @@ const books = [
 },
 ];
 
-const BookList =() => {
-const someValue="shakeAndBake"
-const displayValue =() => {
-console.log(someValue);
-}
-  return (
-  <section className="booklist">
-    {/* <EventExamples /> */}
-    {books.map((book) => {
-     
-      return <Book {...book} key={book.id} displayValue={displayValue}/>;
-      })}
+const BookList = () => {
+  const getBook = (id) => {
+    const book = books.find((book) => book.id === id);
+    console.log(book);
+  };
 
+return (
+  <section className='booklist'>
+    {books.map((book) => {
+      return <Book {...book} key={book.id} getBook={getBook} />;
+    })}
   </section>
-  );
+);
 };
 
+
 const Book = (props) => {
-  const { img, title, author, displayValue } = props;
-    console.log(props);
-// const displayTitle = () => {
-//   console.log(title);
-// }
+  const { img, title, author, getBook, id} = props;
+   
+  const getSingleBook = () => {
+    getBook(id)
+  }
+  
+    
   return (
     <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayValue}>click me</button>
+      <button onClick={getSingleBook}>click me</button>
       <h4>{author} </h4>
     </article>
   );
 };
 
 
-// const EventExamples = () => {
-  // const handleFormInput = (e) => {
-  //   // console.log(e);
-  //   console.log(e.target);
-  //   console.log(e.target.name);
-  //   console.log(e.target.value);
-  // };
-  // const handleButtonClick = () => {
-  //   alert('handle button click');
-  // };
-  // const handleFormSubmission = (e) => {
-  //   e.preventDefault();
-  //   console.log('form submitted');
-  // };
-//   const EventExamples = () => {
-//     return (
-//       <section>
-//         <form>
-//           <h2>Typical Form</h2>
-//           <input
-//             type='text'
-//             name='product'
-//             onChange={(e) => console.log(e.target.value)}
-//             style={{ margin: '1rem 0' }}
-//           />
-//           <button type='submit'>submit</button>
-//         </form>
-//         <button onClick={() => console.log('you clicked me')}>click me</button>
-//       </section>
-//     );
-//   };
 
-// const Book = (props) => {
-//   const { img, title, author } = props;
-// console.log(props)
-//   return (
-//     <article className='book'>
-//       <img src={img} alt={title} />
-//       <h2>{title}</h2>
-//       <h4>{author} </h4>
-//     </article>
-//   );
-// };
 
   const root = ReactDOM.createRoot(document.getElementById('root'));
 
