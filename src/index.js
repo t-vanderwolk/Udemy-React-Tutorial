@@ -7,18 +7,18 @@ import Book from "./Book";
 
 
 const BookList = () => {
-  // const getBook = (id) => {
-  //   const book = books.find((book) => book.id === id);
-  //   console.log(book);
-  // };
+
 
 return (
+  <>
+  <h1>amazon best sellers</h1>
   <section className='booklist'>
    
-    {books.map((book) => {
-      return <Book {...book} key={book.id} />;
+    {books.map((book, index) => {
+      return <Book {...book} key={book.id} number={index} />;
     })}
   </section>
+  </>
 );
 };
 
